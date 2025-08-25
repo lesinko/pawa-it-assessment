@@ -1,0 +1,46 @@
+# ==========================
+# Python
+# ==========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.py.class
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# ==========================
+# Terraform
+# ==========================
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.tfvars.json
+.terraform/
+.terraform.lock.hcl
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ==========================
+# OS Files
+# ==========================
+.DS_Store
+Thumbs.db

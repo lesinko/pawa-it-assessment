@@ -1,0 +1,46 @@
+Overview
+
+This project was deployed using Terraform to provision infrastructure on GCP. The Docker image was built locally, pushed to Google Artifact Registry, and then used by Cloud Run to run the application.
+
+Prerequisites
+
+Google Cloud SDK installed and configured with appropriate permissions.
+Terraform installed and configured.
+Access to Google Artifact Registry.
+Docker installed locally for image building.
+
+Infrastructure Setup
+
+terraform init
+terraform plan
+terraform apply
+
+
+Terraform provisions:
+
+Google Artifact Registry for storing container images
+
+Cloud Run service to run the containerized application
+
+Supporting IAM roles, permissions, and network configuration
+
+Build and Push Docker Image
+
+After Terraform created the infrastructure, the Docker image was built locally and pushed to the Artifact Registry:
+
+# Authenticate Docker with Artifact Registry
+gcloud auth configure-docker REGION-docker.pkg.dev
+
+# Build Docker image
+docker build -t REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/IMAGE_NAME:TAG .
+
+# Push Docker image
+docker push REGION-docker.pkg.dev/PROJECT_ID/REPO_NAME/IMAGE_NAME:TAG
+
+Project Structure
+.
+├── Dockerfile               # Docker configuration for building the app image
+├── main.tf                  # Terraform main configuration
+├── variables.tf             # Terraform variables
+├── outputs.tf               # Terraform outputs
+└── README.md                # Project documentation
